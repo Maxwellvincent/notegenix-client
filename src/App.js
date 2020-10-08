@@ -1,10 +1,12 @@
 import React from 'react';
+import InputTodos from './components/InputTodos';
+import './App.css';
 
 
 function App() {
   return (
     <main className='App'>
-      <h1>We are running!</h1>
+      <InputTodos />
     </main>
   );
 }
