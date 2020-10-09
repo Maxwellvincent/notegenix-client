@@ -2,11 +2,14 @@ import React, { useState }from 'react';
 import './InputTodos.css';
 
 const InputTodo = () => {
+    // const [todos, setTodos] = useState([]);
     const [description, setDescription] = useState('');
-
+    
+  
     //handle the form submission
     const onFormSubmit = async (e) => {
         e.preventDefault();
+
         try {
             const body = {description};
             const response = await fetch('http://localhost:8000/api/v1/todos', {
@@ -15,10 +18,16 @@ const InputTodo = () => {
                 body: JSON.stringify(body)
             });
             console.log(response);
+            // Need to grab state of todos and push in new todo
+            setDescription("");
+            console.log(body);
+           window.location = ("/");
         } catch (error) {
             console.log(error.message);
         }
     }
+
+
 
     return (
         <div>
@@ -31,7 +40,7 @@ const InputTodo = () => {
                     value={description}
                     onChange={e => setDescription(e.target.value)}
                     />
-                <button>Add</button>
+                <button type="submit">Add</button>
             </form>
         </div>
     )
