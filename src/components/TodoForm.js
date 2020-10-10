@@ -1,19 +1,19 @@
-import React, { useState, useEffect }from 'react';
-import './InputTodos.css';
+import React, { useState }from 'react';
+import './TodoForm.css';
 
-const InputTodo = () => {
+const TodoForm = ({saveTodo}) => {
     // const [todos, setTodos] = useState([]);
-    const [description, setDescription] = useState('');
-    
-  
+    const [value, setValue] = useState('');
 
-  
     //handle the form submission
     const onFormSubmit = async (e) => {
         e.preventDefault();
+        // console.log(value);
+        saveTodo({description: value});
 
         try {
-            const body = {description};
+            const body = {description: value};
+            console.log(body)
             const response = await fetch('http://localhost:8000/api/v1/todos', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -21,12 +21,9 @@ const InputTodo = () => {
             });
             console.log(response);
             // Need to grab state of todos and push in new todo
-            let newVar = "";
-            setDescription(newVar);
-            console.log(body);
-            getTodos();
             
-        //    window.location = ("/");
+            setValue('');
+            
         } catch (error) {
             console.log(error.message);
         }
@@ -42,8 +39,8 @@ const InputTodo = () => {
                 <input type="text" 
                     placeholder="add todo" 
                     className="form-control"
-                    value={description}
-                    onChange={e => setDescription(e.target.value)}
+                    value={value}
+                    onChange={e => setValue(e.target.value)}
                     />
                 <button type="submit">Add</button>
             </form>
@@ -51,4 +48,4 @@ const InputTodo = () => {
     )
 }
 
-export default InputTodo;
+export default TodoForm;
