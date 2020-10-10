@@ -1,10 +1,12 @@
-import React, { useState }from 'react';
+import React, { useState, useEffect }from 'react';
 import './InputTodos.css';
 
 const InputTodo = () => {
     // const [todos, setTodos] = useState([]);
     const [description, setDescription] = useState('');
     
+  
+
   
     //handle the form submission
     const onFormSubmit = async (e) => {
@@ -19,9 +21,12 @@ const InputTodo = () => {
             });
             console.log(response);
             // Need to grab state of todos and push in new todo
-            setDescription("");
+            let newVar = "";
+            setDescription(newVar);
             console.log(body);
-           window.location = ("/");
+            getTodos();
+            
+        //    window.location = ("/");
         } catch (error) {
             console.log(error.message);
         }
