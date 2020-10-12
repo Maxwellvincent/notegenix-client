@@ -1,7 +1,8 @@
-import React, { useState, useEffect} from 'react';
+import React from 'react';
+import Todo from '../Todo/Todo'
 import './TodoList.css';
 
-const TodoList = ({todos, deleteTodo}) => {
+const TodoList = ({todos, deleteTodo, findItem}) => {
 
     // const [todos, setTodos] = useState([]);
 
@@ -47,36 +48,12 @@ const TodoList = ({todos, deleteTodo}) => {
     return (
        
         <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {todos.map(todo => (
-                        
-                        <tr key={todo.id}>
-                            <td>{todo.description}</td>
-                            <td>Edit</td>
-                            <td>
-                                <button 
-                                onClick={() => deleteTodo(todo.id)} 
-                                className="btn">Delete
-                                </button>
-                            </td>
-                        </tr>
+            <ul>
+                {todos.map(todo => (
+                        <Todo todo={todo} deleteTodo={deleteTodo} findItem={findItem}/>
                     ))}
-                    {/* <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr> */}
-                </tbody>
-                
-            </table>
+            </ul>
+            
         </div>
 
     )

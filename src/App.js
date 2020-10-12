@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import TodoForm from './components/TodoForm';
-import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm/TodoForm';
+import TodoList from './components/TodoList/TodoList';
 import './App.css';
 
 
 function App() {
 
   const [todos, setTodos] = useState([]);
-
+  const [editTodo, setEditTodo] = useState(null);
 
 
   // Need to put the state of the todos, add , edit, and delete functions here or be able to pass down the functions into the components
@@ -46,6 +46,7 @@ function App() {
             console.error(error.message);
         }
     }
+  
 
    //using instead of componentDidMount and ComponentDidUpdate, this does it all combined.
     useEffect(() => {
@@ -54,21 +55,54 @@ function App() {
 
     //Explains why we need to set an array at the end of useEffect https://www.robinwieruch.de/react-hooks-fetch-data
 
-  return (
-    <main className='App'>
-      <TodoForm 
-        saveTodo={(todoText) => {
-          console.log(todoText);
+  const addTodo = (todoText) => {
+    console.log(todoText);
           // check ane make sure we are not receiving empty strings
           if(todoText.description.length > 0){
             setTodos([...todos, todoText]);
           }
-        }}
+  }
+
+  const findItem = id => {
+    const item = todos.find(todo => todo.id === id);
+    setEditTodo(item)
+  }
+
+  // This edit task function is not working, is it because Im not making a post request just yet?
+  const editTask = (description, id) => {
+    // this is the description of the task
+    console.log(description)
+    //This is a reference to the id of the task
+    console.log(id)
+
+    
+    // console.log(todos);
+    const newTodos = todos.map(task => task.id === id ? {description, id} : task);
+    setTodos(newTodos)
+    setEditTodo(null);
+    console.log(newTodos);
+    //Need to set up update request here
+  }
+  
+
+  return (
+    <main className='App'>
+      <TodoForm
+      addTodo={addTodo} 
+      editTask={editTask}
+      editTodo={editTodo}
+        // addTodo={(todoText) => {
+        //   console.log(todoText);
+        //   // check ane make sure we are not receiving empty strings
+        //   if(todoText.description.length > 0){
+        //     setTodos([...todos, todoText]);
+        //   }
+        // }}
       />
       <TodoList 
       todos={todos}
+      findItem={findItem}
       deleteTodo={deleteTodo}
-      // editTodo={editTodo}
       />
     </main>
   );
