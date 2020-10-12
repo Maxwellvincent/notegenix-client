@@ -77,7 +77,7 @@ function App() {
       // const body = {description};
       const resp = await fetch(`http://localhost:8000/api/v1/todos/` +id, {
         method: 'PATCH',
-        headers: {"Content_type": 'application/json'},
+        headers: {'content-type': 'application/json'},
         body : JSON.stringify(description)
       });
       console.log(resp);
