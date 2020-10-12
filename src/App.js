@@ -68,20 +68,39 @@ function App() {
     setEditTodo(item)
   }
 
+  // This function will update the server
+
+  async function updateTodo(description,id) {
+
+    try {
+      console.log(JSON.stringify(description));
+      // const body = {description};
+      const resp = await fetch(`http://localhost:8000/api/v1/todos/` +id, {
+        method: 'PATCH',
+        headers: {"Content_type": 'application/json'},
+        body : JSON.stringify(description)
+      });
+      console.log(resp);
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
   // This edit task function is not working, is it because Im not making a post request just yet?
   const editTask = (description, id) => {
     // this is the description of the task
-    console.log(description)
+    console.log({description: description})
     //This is a reference to the id of the task
     console.log(id)
 
-    
+    updateTodo({description: description}, id)
     // console.log(todos);
     const newTodos = todos.map(task => task.id === id ? {description, id} : task);
     setTodos(newTodos)
     setEditTodo(null);
     console.log(newTodos);
     //Need to set up update request here
+
+    
   }
   
 
