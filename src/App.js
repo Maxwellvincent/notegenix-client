@@ -5,12 +5,9 @@ import './App.css';
 
 
 function App() {
-
+  // Need to put the state of the todos, add , edit, and delete functions here or be able to pass down the functions into the components
   const [todos, setTodos] = useState([]);
   const [editTodo, setEditTodo] = useState(null);
-
-
-  // Need to put the state of the todos, add , edit, and delete functions here or be able to pass down the functions into the components
 
 
   //Need to make fetch request here to get all todos from server
@@ -19,7 +16,7 @@ function App() {
     try {
       const response = await fetch(`https://boiling-citadel-55622.herokuapp.com/api/v1/todos`);
       // Check that we are receiving a response
-        console.log(response);
+        // console.log(response);
        // we are returning an array of notes to be display, the data that we are receiving will be json, so we need to parse the data with .json();
        const todosArray = await response.json();
        // console.log(todosArray);
@@ -32,6 +29,7 @@ function App() {
     }
   }
 
+  // Function to delete specific notes
   async function deleteTodo(id){
         console.log(id);
         try {
@@ -73,14 +71,14 @@ function App() {
   async function updateTodo(description,id) {
 
     try {
-      console.log(JSON.stringify(description));
-      // const body = {description};
-      const resp = await fetch(`https://boiling-citadel-55622.herokuapp.com/api/v1/todos/` +id, {
+        // console.log(JSON.stringify(description));
+      // const body = {description}; 
+      await fetch(`https://boiling-citadel-55622.herokuapp.com/api/v1/todos/` +id, {
         method: 'PATCH',
         headers: {'content-type': 'application/json'},
         body : JSON.stringify(description)
       });
-      console.log(resp);
+      // console.log(resp);
     } catch (error) {
       console.log(error.message)
     }
@@ -88,17 +86,17 @@ function App() {
   // This edit task function is not working, is it because Im not making a post request just yet?
   const editTask = (description, id) => {
     // this is the description of the task
-    console.log({description: description})
+      // console.log({description: description})
     //This is a reference to the id of the task
-    console.log(id)
-
+      // console.log(id)
+      //Need to set up update request here
     updateTodo({description: description}, id)
     // console.log(todos);
     const newTodos = todos.map(task => task.id === id ? {description, id} : task);
     setTodos(newTodos)
     setEditTodo(null);
-    console.log(newTodos);
-    //Need to set up update request here
+      // console.log(newTodos);
+    
 
     
   }
@@ -110,13 +108,6 @@ function App() {
       addTodo={addTodo} 
       editTask={editTask}
       editTodo={editTodo}
-        // addTodo={(todoText) => {
-        //   console.log(todoText);
-        //   // check ane make sure we are not receiving empty strings
-        //   if(todoText.description.length > 0){
-        //     setTodos([...todos, todoText]);
-        //   }
-        // }}
       />
       <TodoList 
       todos={todos}
