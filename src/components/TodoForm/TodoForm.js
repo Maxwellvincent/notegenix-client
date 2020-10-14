@@ -13,7 +13,7 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
             try {
                 const body = {description: value};
                 console.log(body)
-                const response = await fetch('http://localhost:8000/api/v1/todos', {
+                const response = await fetch('https://boiling-citadel-55622.herokuapp.com/api/v1/todos', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(body)

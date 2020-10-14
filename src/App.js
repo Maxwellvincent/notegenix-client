@@ -17,7 +17,7 @@ function App() {
 
   async function getAllTodos() {
     try {
-      const response = await fetch(`http://localhost:8000/api/v1/todos`);
+      const response = await fetch(`https://boiling-citadel-55622.herokuapp.com/api/v1/todos`);
       // Check that we are receiving a response
         console.log(response);
        // we are returning an array of notes to be display, the data that we are receiving will be json, so we need to parse the data with .json();
@@ -35,7 +35,7 @@ function App() {
   async function deleteTodo(id){
         console.log(id);
         try {
-            await fetch(`http://localhost:8000/api/v1/todos/${id}`, {
+            await fetch(`https://boiling-citadel-55622.herokuapp.com/api/v1/todos/${id}`, {
                 method: "DELETE"
             });
             //We dont want to have to refresh the page to relod the delete, so we need to make sure we change the state, which changing the state we rerender
@@ -75,7 +75,7 @@ function App() {
     try {
       console.log(JSON.stringify(description));
       // const body = {description};
-      const resp = await fetch(`http://localhost:8000/api/v1/todos/` +id, {
+      const resp = await fetch(`https://boiling-citadel-55622.herokuapp.com/api/v1/todos/` +id, {
         method: 'PATCH',
         headers: {'content-type': 'application/json'},
         body : JSON.stringify(description)
