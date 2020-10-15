@@ -54,7 +54,7 @@ function Navbar() {
                         </li>
                         <li className='nav-item'>
                             <Link exact to='/start' className='nav-links' onClick={closeMobileMenu}>
-                                Start
+                                Start Task
                             </Link>
                         </li>
                         <li className='nav-item'>
