@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import TodoForm from './components/TodoForm/TodoForm';
 import TodoList from './components/TodoList/TodoList';
+import Navbar from './components/Navbar/Navbar';
+import {Switch, Route} from 'react-router-dom';
 import './App.css';
+import Home from './components/Pages/Home';
+
 
 
 function App() {
@@ -103,19 +107,28 @@ function App() {
   
 
   return (
-    <div className='todo-app'>
-      <h1>Input Todo</h1>
-      <TodoForm
-      addTodo={addTodo} 
-      editTask={editTask}
-      editTodo={editTodo}
-      />
-      <TodoList 
-      todos={todos}
-      findItem={findItem}
-      deleteTodo={deleteTodo}
-      />
+    <div className="main">
+      <Navbar/>
+      <Switch>
+        <Route path="/home" exact component={Home} />
+        <Route path='/start' exact>
+          <div className='todo-app'>
+            <h1>Input Todo</h1>
+            <TodoForm
+              addTodo={addTodo} 
+              editTask={editTask}
+              editTodo={editTodo}
+            />
+            <TodoList 
+              todos={todos}
+              findItem={findItem}
+              deleteTodo={deleteTodo}
+            />
+          </div>
+        </Route>
+      </Switch>
     </div>
+    
   );
 }
 

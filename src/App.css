@@ -8,8 +8,8 @@
 body {
     background-color: #282c34;
     color: white;
-    padding: 100px;
-    font-family: Arial;
+    /* padding: 1rem; */
+    font-family: 'Josefin Sans', sans-serif;
     text-align: center;
   }
 
@@ -25,6 +25,7 @@ body {
     padding-top: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    margin-top: 2rem;
   }
 
   .todo-app h1 {
@@ -65,4 +66,43 @@ input[type=text] {
 /* style the button */
 button {
   background-color: orange;
+}
+
+/* Navbar styling */
+.home,
+.services,
+.products,
+.sign-up {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.services {
+  background-image: url('/images/img-2.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+
+.products {
+  background-image: url('/images/img-1.jpg');
+  background-position: center;
+  background-size: fill;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+
+.sign-up {
+  background-image: url('/images/img-8.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
 }
