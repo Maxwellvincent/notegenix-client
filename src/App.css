@@ -1,3 +1,10 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
     background-color: #282c34;
     color: white;
@@ -5,3 +12,57 @@ body {
     font-family: Arial;
     text-align: center;
   }
+
+  /* Styling for the main container of the app */
+  .todo-app {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #161a2b;
+    text-align: center;
+    border-radius: 10px;
+    padding-bottom: 32px;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .todo-app h1 {
+    margin: 32px 0;
+    color: #fff;
+    font-size: 24px;
+}
+
+input[type=text] {
+  height: 2rem;
+}
+
+.todo-input input[type=text] {
+  width: 100%;
+  text-align: center;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Styling for user inputs box */
+
+.user-input {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Form submite */
+.form-control {
+  display: flex;
+}
+
+/* style the button */
+button {
+  background-color: orange;
+}

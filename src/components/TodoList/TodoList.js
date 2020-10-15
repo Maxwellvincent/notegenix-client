@@ -47,12 +47,11 @@ const TodoList = ({todos, deleteTodo, findItem}) => {
 
     return (
        
-        <div>
-            <ul>
+        <div className="todo-list">
+            <h2>Task's to complete</h2>
                 {todos.map(todo => (
                         <Todo todo={todo} deleteTodo={deleteTodo} findItem={findItem}/>
                     ))}
-            </ul>
             
         </div>
 

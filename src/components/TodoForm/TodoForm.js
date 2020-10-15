@@ -1,5 +1,6 @@
 import React, { useState, useEffect }from 'react';
 import './TodoForm.css';
+import {MdAddBox} from 'react-icons/md'
 
 const TodoForm = ({addTodo, editTask, editTodo}) => {
     // const [todos, setTodos] = useState([]);
@@ -50,17 +51,24 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
 
 
     return (
-        <div>
-            <h1>Input Todo</h1>
+        <div className="todo-form">
+            {/* <h1>Input Todo</h1> */}
             
             <form onSubmit={onFormSubmit}>
-                <input type="text" 
-                    placeholder="add todo" 
-                    className="form-control"
-                    value={value}
-                    onChange={e => setValue(e.target.value)}
-                    />
-                <button type="submit">{editTodo ? 'Edit Task': 'Add Task'}</button>
+                <div className="form-control">
+                    <input type="text" 
+                        placeholder="add todo" 
+                        className="form-control"
+                        value={value}
+                        onChange={e => setValue(e.target.value)}
+                        
+                        />
+                    {/* <MdAddBox type="submit" className="icons"> 
+                        {MdAddBox? 'Edit Task': 'Add Task'}
+                    </MdAddBox> */}
+                    <button type="submit">{editTodo ? 'Edit Task': 'Add Task'}</button>
+                </div>
+                
             </form>
         </div>
     )

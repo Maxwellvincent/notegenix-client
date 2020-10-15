@@ -103,7 +103,8 @@ function App() {
   
 
   return (
-    <main className='App'>
+    <div className='todo-app'>
+      <h1>Input Todo</h1>
       <TodoForm
       addTodo={addTodo} 
       editTask={editTask}
@@ -114,7 +115,7 @@ function App() {
       findItem={findItem}
       deleteTodo={deleteTodo}
       />
-    </main>
+    </div>
   );
 }
 
