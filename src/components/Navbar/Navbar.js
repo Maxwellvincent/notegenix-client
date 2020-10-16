@@ -36,14 +36,14 @@ function Navbar() {
                         style={{color: "white"}}
                         onClick={closeMobileMenu}
                     >
-                        LOGO is here <i className="fab fa-typo3"></i>
+                        Notegenix <i className="fab fa-typo3"></i>
                     </Link>
                     <div className='menu-icon' onClick={handleClick}>
                         <i className={click ? 'fas fa-times': 'fas fa-bars'}/>
                     </div>
                     <ul className={click ? 'nav-menu active': 'nav-menu'}>
                         <li className='nav-item'>
-                            <Link exact to='/Home' className='nav-links' onClick={closeMobileMenu}>
+                            <Link exact to='/' className='nav-links' onClick={closeMobileMenu}>
                                 Home
                             </Link>
                         </li>
@@ -57,11 +57,11 @@ function Navbar() {
                                 Start Task
                             </Link>
                         </li>
-                        <li className='nav-item'>
+                        {/* <li className='nav-item'>
                             <Link exact to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
                                 Sign-up
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                     {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
                 </div>

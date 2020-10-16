@@ -1,0 +1,19 @@
+.about-content {
+    margin-top: 1.5rem;
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.about-content h1 {
+    font-size: 3rem;
+    margin-top: 5rem;
+}
+
+.about-content h2 {
+    margin-top: 1rem;
+}
+
+.about-content p {
+    margin-top: 2rem;
+}

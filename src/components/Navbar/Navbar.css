@@ -74,6 +74,12 @@
   .menu-icon {
     display: none;
   }
+
+  @media screen and (max-width: 400px) {
+    .navbar-logo {
+      display: none;
+    }
+  }
   
   @media screen and (max-width: 960px) {
     .NavbarItems {

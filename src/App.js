@@ -5,7 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import {Switch, Route} from 'react-router-dom';
 import './App.css';
 import Home from './components/Pages/Home';
-
+import About from './components/Pages/About';
 
 
 function App() {
@@ -110,7 +110,7 @@ function App() {
     <div className="main">
       <Navbar/>
       <Switch>
-        <Route path="/home" exact component={Home} />
+        <Route path="/" exact component={Home} />
         <Route path='/start' exact>
           <div className='todo-app'>
             <h1>Input Todo</h1>
@@ -126,6 +126,7 @@ function App() {
             />
           </div>
         </Route>
+        <Route path='/about' component={About}/>
       </Switch>
     </div>
     
