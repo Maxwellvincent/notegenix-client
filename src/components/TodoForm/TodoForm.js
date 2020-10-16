@@ -9,6 +9,7 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
     //handle the form submission
     const onFormSubmit = async (e) => {
         e.preventDefault();
+       
         if(!editTodo){
             addTodo({description: value});
             try {
@@ -61,7 +62,7 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
                         className="form-control"
                         value={value}
                         onChange={e => setValue(e.target.value)}
-                        
+                        required
                         />
                     {/* <MdAddBox type="submit" className="icons"> 
                         {MdAddBox? 'Edit Task': 'Add Task'}
