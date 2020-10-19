@@ -36,7 +36,8 @@ function Navbar() {
                         style={{color: "white"}}
                         onClick={closeMobileMenu}
                     >
-                        Notegenix <i className="fab fa-typo3"></i>
+                        Notegenix 
+                        {/* <i className="fab fa-typo3"></i> */}
                     </Link>
                     <div className='menu-icon' onClick={handleClick}>
                         <i className={click ? 'fas fa-times': 'fas fa-bars'}/>

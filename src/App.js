@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import TodoForm from './components/TodoForm/TodoForm';
 import TodoList from './components/TodoList/TodoList';
 import Navbar from './components/Navbar/Navbar';
+import {BrowserRouter as Router} from 'react-router-dom';
 import {Switch, Route} from 'react-router-dom';
 import './App.css';
 import Home from './components/Pages/Home';
@@ -107,28 +108,31 @@ function App() {
   
 
   return (
-    <div className="main">
-      <Navbar/>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path='/start' exact>
-          <div className='todo-app'>
-            <h1>Input Todo</h1>
-            <TodoForm
-              addTodo={addTodo} 
-              editTask={editTask}
-              editTodo={editTodo}
-            />
-            <TodoList 
-              todos={todos}
-              findItem={findItem}
-              deleteTodo={deleteTodo}
-            />
-          </div>
-        </Route>
-        <Route path='/about' component={About}/>
-      </Switch>
-    </div>
+    <Router>
+        <div className="main">
+        <Navbar/>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path='/start' exact>
+            <div className='todo-app'>
+              <h1>Input Todo</h1>
+              <TodoForm
+                addTodo={addTodo} 
+                editTask={editTask}
+                editTodo={editTodo}
+              />
+              <TodoList 
+                todos={todos}
+                findItem={findItem}
+                deleteTodo={deleteTodo}
+              />
+            </div>
+          </Route>
+          <Route path='/about' component={About}/>
+        </Switch>
+      </div>
+    </Router>
+    
     
   );
 }

@@ -6,6 +6,9 @@
     overflow: hidden;
 }
 
+body {
+    background-color: black;
+}
 .three_icons {
     display: flex;
     flex-direction: row;

@@ -24,35 +24,6 @@ const Todo = ({todo, deleteTodo, findItem}) => {
                     className="icons"
                 />
             </div>
-                
-
-            {/* <li key={todo.id}>
-                <input type="text" 
-                    value={todo.description} 
-                    
-
-                />
-                <AiFillEdit 
-                onClick={() => findItem(todo.id)}
-                className="icons"
-                />
-
-                <EditTodo 
-                    todo={todo} 
-                    findItem={findItem}
-
-                />
-                
-                <AiFillCloseSquare
-                    onClick={() => deleteTodo(todo.id)} 
-                    className="icons"
-                />
-                
-                <button 
-                    onClick={() => deleteTodo(todo.id)} 
-                    className="btn">Delete
-                </button> 
-            </li> */}
         </div>
 
     )
