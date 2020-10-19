@@ -1,3 +1,25 @@
+# [Notegenix](https://notegenix-client.vercel.app/)
+
+Set yourself up for success by creating, and completing various tasks/todo items. A great way to prioritze your goals, events, and tasks. Tasks can be created, edited, and deleted.
+
+## API Documentation
+
+
+## Screenshots
+
+## Technology Used
+- Front-End:
+  - React
+  - JS
+  - CSS
+  - HTML
+- Back-End:
+  - Express
+  - PSQL
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
