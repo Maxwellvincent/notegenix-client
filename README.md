@@ -6,6 +6,9 @@ Set yourself up for success by creating, and completing various tasks/todo items
 
 
 ## Screenshots
+![image](https://user-images.githubusercontent.com/44560811/96477226-3bf4cc00-1204-11eb-86dc-fb453caa2cc5.png)
+
+![image](https://user-images.githubusercontent.com/44560811/96477374-69da1080-1204-11eb-8408-7428348dc9b8.png)
 
 ## Technology Used
 - Front-End:
