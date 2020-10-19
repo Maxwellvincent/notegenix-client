@@ -4,6 +4,7 @@ Set yourself up for success by creating, and completing various tasks/todo items
 
 ## API Documentation
 
+### [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e5f56644ae352359abfb)
 
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/44560811/96477226-3bf4cc00-1204-11eb-86dc-fb453caa2cc5.png)
