@@ -12,7 +12,11 @@ function AboutSection() {
             {/* <iframe title="Survey for Notegenix" src="" class="survey" frameBorder="0" marginHeight="0" marginWidth="0"></iframe> */}
 
             <h2>Leave me feedback</h2>
-            <iframe title="Suvery for Notegenix"src="https://docs.google.com/forms/d/e/1FAIpQLSerS-bOm8kjk9_HANBh7CztTLil5xxMrTzg0T-CAen3tYVasA/viewform?embedded=true" width="640" height="1429" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <div className="iframe-container">
+                <iframe title="Suvery for Notegenix"src="https://docs.google.com/forms/d/e/1FAIpQLSerS-bOm8kjk9_HANBh7CztTLil5xxMrTzg0T-CAen3tYVasA/viewform?embedded=true" width="640" height="1429" frameborder="0" marginheight="0" marginwidth="0" scrolling="no">
+                </iframe>
+            </div>
+            
             
         </div>
 

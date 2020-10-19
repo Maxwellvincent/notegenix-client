@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import TodoForm from './components/TodoForm/TodoForm';
 import TodoList from './components/TodoList/TodoList';
 import Navbar from './components/Navbar/Navbar';
-import {BrowserRouter as Router} from 'react-router-dom';
 import {Switch, Route} from 'react-router-dom';
 import './App.css';
 import Home from './components/Pages/Home';
@@ -52,9 +51,12 @@ function App() {
   
 
    //using instead of componentDidMount and ComponentDidUpdate, this does it all combined.
-    useEffect(() => {
-        getAllTodos();
-    },[]);
+   //This is working with no error
+   useEffect(getAllTodos,[])
+
+    // useEffect(() => {
+    //   getAllTodos();
+    // },[]);
 
     //Explains why we need to set an array at the end of useEffect https://www.robinwieruch.de/react-hooks-fetch-data
 
@@ -108,7 +110,7 @@ function App() {
   
 
   return (
-    <Router>
+    
         <div className="main">
         <Navbar/>
         <Switch>
@@ -131,7 +133,7 @@ function App() {
           <Route path='/about' component={About}/>
         </Switch>
       </div>
-    </Router>
+   
     
     
   );

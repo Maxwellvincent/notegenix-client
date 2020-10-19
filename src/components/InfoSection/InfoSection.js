@@ -5,7 +5,7 @@ import "../InfoSection/InfoSection.css";
 
 function InfoSection(){
     return(
-        <IconContext.Provider value={{color: 'white', className: "global-class-name"}}>
+        <IconContext.Provider value={{color: 'white', className: "global-class-name", size: "3rem"}}>
             <div className="second-layer">
                 <div className="three_icons">
                     <div>
