@@ -48,9 +48,13 @@ const TodoList = ({todos, deleteTodo, findItem}) => {
     return (
        
         <div className="todo-list">
-            <h2>Task's to complete</h2>
+            <h2>Tasks to complete</h2>
                 {todos.map((todo,index) => (
-                        <Todo key={index} todo={todo} deleteTodo={deleteTodo} findItem={findItem}/>
+                        <Todo 
+                            key={index} 
+                            todo={todo} 
+                            deleteTodo={deleteTodo} 
+                            findItem={findItem}/>
                     ))}
             
         </div>

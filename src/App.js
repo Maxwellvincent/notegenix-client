@@ -60,16 +60,19 @@ function App() {
 
     //Explains why we need to set an array at the end of useEffect https://www.robinwieruch.de/react-hooks-fetch-data
 
+    //MAY NEED TO PASS IN AN OBJECT HERE, SO I CAN HAVE ACCESS TO THE ID AS WELL, MAY NEED TO GENERATE A UUID
   const addTodo = (todoText) => {
     console.log(todoText);
           // check ane make sure we are not receiving empty strings
-          if(todoText.description.length > 0){
+          if(todoText.description.length > 0){ 
             setTodos([...todos, todoText]);
           }
   }
 
   const findItem = id => {
+    console.log(todos);
     const item = todos.find(todo => todo.id === id);
+    console.log(item);
     setEditTodo(item)
   }
 
@@ -92,20 +95,13 @@ function App() {
   }
   // This edit task function is not working, is it because Im not making a post request just yet?
   const editTask = (description, id) => {
-    // this is the description of the task
-      // console.log({description: description})
-    //This is a reference to the id of the task
-      // console.log(id)
-      //Need to set up update request here
+   console.log(id);
     updateTodo({description: description}, id)
-    // console.log(todos);
-    const newTodos = todos.map(task => task.id === id ? {description, id} : task);
+   
+    const newTodos = todos.map(task => task.id === id ? {description: description, id: id} : task);
     setTodos(newTodos)
     setEditTodo(null);
-      // console.log(newTodos);
-    
-
-    
+      console.log(newTodos);
   }
   
 
