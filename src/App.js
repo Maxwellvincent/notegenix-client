@@ -20,11 +20,8 @@ function App() {
     try {
       const response = await fetch(`https://boiling-citadel-55622.herokuapp.com/api/v1/todos`);
       // Check that we are receiving a response
-        // console.log(response);
        // we are returning an array of notes to be display, the data that we are receiving will be json, so we need to parse the data with .json();
        const todosArray = await response.json();
-       // console.log(todosArray);
-
        // inside the state we want to put the todos, by usring React hook setTodos
        setTodos(...todos,todosArray);
 
@@ -54,10 +51,6 @@ function App() {
    //This is working with no error
    useEffect(getAllTodos,[])
 
-    // useEffect(() => {
-    //   getAllTodos();
-    // },[]);
-
     //Explains why we need to set an array at the end of useEffect https://www.robinwieruch.de/react-hooks-fetch-data
 
     //MAY NEED TO PASS IN AN OBJECT HERE, SO I CAN HAVE ACCESS TO THE ID AS WELL, MAY NEED TO GENERATE A UUID
@@ -81,14 +74,11 @@ function App() {
   async function updateTodo(description,id) {
 
     try {
-        // console.log(JSON.stringify(description));
-      // const body = {description}; 
       await fetch(`https://boiling-citadel-55622.herokuapp.com/api/v1/todos/` +id, {
         method: 'PATCH',
         headers: {'content-type': 'application/json'},
         body : JSON.stringify(description)
       });
-      // console.log(resp);
     } catch (error) {
       console.log(error.message)
     }

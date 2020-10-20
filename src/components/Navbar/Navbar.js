@@ -37,7 +37,6 @@ function Navbar() {
                             onClick={closeMobileMenu}
                         >
                             Notegenix 
-                            {/* <i className="fab fa-typo3"></i> */}
                         </Link>
                         <div className='menu-icon' onClick={handleClick}>
                             <i className={click ? 'fas fa-times': 'fas fa-bars'}/>
@@ -58,11 +57,6 @@ function Navbar() {
                                     Start Task
                                 </Link>
                             </li>
-                            {/* <li className='nav-item'>
-                                <Link exact to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
-                                    Sign-up
-                                </Link>
-                            </li> */}
                         </ul>
                         {/* {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>} */}
                     </div>
