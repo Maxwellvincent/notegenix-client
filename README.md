@@ -4,7 +4,26 @@ Set yourself up for success by creating, and completing various tasks/todo items
 
 ## API Documentation
 
-### [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e5f56644ae352359abfb)
+### Introduction
+The NoteGenix API is organized around REST. The API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, and verbs.
+
+The NoteGenix API can be used to programmatically retrieve and analyze data.
+This API provides access to a multitude of notes
+ 
+
+### Overview
+Things that the developers should know about
+
+### Authentication
+What is the preferred way of using the API?
+- No Authentication
+
+### Error Codes
+Notegenix uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Stripe's servers (these are rare).
+
+### Rate limit
+Is there a limit to the number of requests an user can send?
+There is not a rate limit set at this time, user is able to make as many requests at they need
 
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/44560811/96477226-3bf4cc00-1204-11eb-86dc-fb453caa2cc5.png)
