@@ -12,7 +12,7 @@ This API provides access to a multitude of notes
  
 
 ### Overview
-Things that the developers should know about
+
 
 ### Authentication
 What is the preferred way of using the API?
