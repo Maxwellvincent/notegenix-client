@@ -10,20 +10,10 @@ export const Button = ({children, type, onClick, buttonStyle, buttonSize}) => {
 
     const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
-    return(
-        <>
-            {
-                children !== "More info" ? <Link to='/start' className='btn-mobile'>
-                <button
-                    className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-                    onClick={onClick}
-                    type={type}
-                >
-                    {children}
-                </button>
-                </Link>
-             :
-                <Link to='/about' className='btn-mobile'>
+    let component = null;
+    switch(children) {
+        case "More info":
+           component = <Link to='/about' className='btn-mobile'>
                 <button
                     className={`btn ${checkButtonStyle} ${checkButtonSize}`}
                     onClick={onClick}
@@ -32,6 +22,65 @@ export const Button = ({children, type, onClick, buttonStyle, buttonSize}) => {
                     {children}
                 </button>
             </Link>
+        break;
+        case "SIGN UP":
+           component = <Link to='/signup' className='btn-mobile'>
+                    <button
+                        className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+                        onClick={onClick}
+                        type={type}
+                    >
+                        {children}
+                    </button>
+                </Link>
+        break;
+        case "Get Started":
+           component = <Link to='/start' className='btn-mobile'>
+                <button
+                    className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+                    onClick={onClick}
+                    type={type}
+                >
+                    {children}
+                </button>
+            </Link>
+        break;
+        default:
+            component = <Link to='/about' className='btn-mobile'>
+                    <button
+                        className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+                        onClick={onClick}
+                        type={type}
+                    >
+                        {children}
+                    </button>
+                </Link>
+    }
+
+    return(
+        <>
+            {
+                component
+
+            //     children !== "More info" ? <Link to='/start' className='btn-mobile'>
+            //     <button
+            //         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+            //         onClick={onClick}
+            //         type={type}
+            //     >
+            //         {children}
+            //     </button>
+            //     </Link>
+            //  :
+            //     <Link to='/about' className='btn-mobile'>
+            //         <button
+            //             className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+            //             onClick={onClick}
+            //             type={type}
+            //         >
+            //             {children}
+            //         </button>
+            //     </Link>
                 
             }
         </>
