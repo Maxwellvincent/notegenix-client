@@ -7,12 +7,15 @@ import './App.css';
 import Home from './components/Pages/Home';
 import About from './components/Pages/About';
 import Signin from './components/Pages/Signin';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import UserDashboard from './components/UserDashboard/UserDashboard';
 
 function App() {
   // Need to put the state of the todos, add , edit, and delete functions here or be able to pass down the functions into the components
   const [todos, setTodos] = useState([]);
   const [editTodo, setEditTodo] = useState(null);
-
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   //Need to make fetch request here to get all todos from server
 
@@ -93,6 +96,10 @@ function App() {
     setEditTodo(null);
       console.log(newTodos);
   }
+
+  const setAuth = (Boolean) => {
+    setIsAuthenticated(Boolean);
+  }
   
 
   return (
@@ -118,6 +125,12 @@ function App() {
             </Route>
             <Route path='/about' component={About}/>
             <Route path='/signup' component={Signin}/>
+            <Route path='/login' 
+              render={props => !isAuthenticated ? <Login {...props} setAuth={setAuth}/> : <Redirect to="/dashboard"/>}/>
+            <Route path='/register'
+              render={props => !isAuthenticated ? <Register {...props} setAuth={setAuth}/> : <Redirect to="login"/>}/>
+            <Route path='/dashboard'
+              render={props => isAuthenticated ? <UserDashboard {...props} setAuth={setAuth}/> : <Redirect to="login"/>}/>
           </Switch>
       </div>
    

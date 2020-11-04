@@ -1,9 +1,10 @@
 import React from 'react'
 
-function Login() {
+function Login({setAuth}) {
     return (
         <div>
-            
+            <h1>LOGIN</h1>
+            <button onClick={() => setAuth(true)}>Authenticate</button>
         </div>
     )
 }
