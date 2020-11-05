@@ -1,23 +1,33 @@
 import React, {useState} from 'react'
 import './Register.css';
 
-function Register() {
+function Register({setAuth}) {
     const [inputs, setInputs] = useState({
         email: "",
         password: "",
         name: ""
     })
 
-    const {email, password, name} = inputs;
+    const {name, email, password} = inputs;
     const onChange = (e) => {
         setInputs({ ...inputs, [e.target.name] : e.target.value})
     }
 
     const onSubmitForm = async (e) => {
         e.preventDefault();
-        console.log("this works")
         try {
-            // const response = await fetch
+            const body = {email, user_password : password, user_name: name}
+            const response = await fetch("http://localhost:8000/auth/register",{
+                method: "Post",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(body)
+            });
+
+            const parseRes = await response.json();
+
+            localStorage.setItem("token", parseRes.token); //set token to local storage
+            setAuth(true);
+            // console.log(parseRes); this is the token 
         } catch (err) {
             console.log(err.message)
         }

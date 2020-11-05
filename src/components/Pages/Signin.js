@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import './Signin.css';
 
 const Signin = ({ onRouteChange, loadUser, user }) => {
@@ -75,8 +76,14 @@ const Signin = ({ onRouteChange, loadUser, user }) => {
                             />
                         </div>
                         <div className="lh-copy mt3">
-                            <p onClick={() => onRouteChange('register')}
-                                className="f6 link dim black db pointer">Register</p>
+                            <Link exact to='/register'>
+                                <p 
+                                    // onClick={() => onRouteChange('register')}
+                                    className="f6 link dim black db pointer"
+                                    >
+                                        Register
+                                </p>
+                            </Link> 
                             
                         </div>
                 </section>
