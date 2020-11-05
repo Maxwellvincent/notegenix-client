@@ -4,12 +4,16 @@ import TodoList from './components/TodoList/TodoList';
 import Navbar from './components/Navbar/Navbar';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import './App.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Home from './components/Pages/Home';
 import About from './components/Pages/About';
 import Signin from './components/Pages/Signin';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import UserDashboard from './components/UserDashboard/UserDashboard';
+
+toast.configure();
 
 function App() {
   // Need to put the state of the todos, add , edit, and delete functions here or be able to pass down the functions into the components
@@ -100,6 +104,25 @@ function App() {
   const setAuth = (Boolean) => {
     setIsAuthenticated(Boolean);
   }
+
+  async function isAuth() {
+    try {
+      const response = await fetch("http://localhost:8000/auth/is-verify", {
+        method: "GET",
+        headers: {token: localStorage.token}
+      });
+
+      const parseRes = await response.json();
+      parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
+
+    } catch (err) {
+        console.error(err.message);
+    }
+  }
+
+  useEffect(() => {
+    isAuth()
+  })
   
 
   return (
@@ -107,8 +130,8 @@ function App() {
         <div className="main">
         <Navbar/>
           <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path='/start' exact>
+            <Route exact path="/" component={Home} />
+            <Route exact path='/start' >
               <div className='todo-app'>
                 <h1>Input Todo</h1>
                 <TodoForm
@@ -124,9 +147,11 @@ function App() {
               </div>
             </Route>
             <Route path='/about' component={About}/>
-            <Route path='/signup' component={Signin}/>
+            <Route path='/register' component={Register}/>
+            {/* <Route path='/signup' component={Signin}/> */}
             <Route path='/login' 
-              render={props => !isAuthenticated ? <Login {...props} setAuth={setAuth}/> : <Redirect to="/dashboard"/>}/>
+              render={props => !isAuthenticated ? <Login {...props} setAuth={setAuth}/> : 
+              <Redirect to="/dashboard"/>}/>
             <Route path='/register'
               render={props => !isAuthenticated ? <Register {...props} setAuth={setAuth}/> : <Redirect to="login"/>}/>
             <Route path='/dashboard'

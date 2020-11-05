@@ -17,24 +17,28 @@ const Signin = ({ onRouteChange, loadUser, user }) => {
 
     const onSubmitSignIn = () => {
         // run a fetch to server
-        fetch('http://localhost:3001/signin', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                email: signInEmail,
-                password: signInPassword
+        try {
+            fetch('http://localhost:8000/auth/login', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    email: signInEmail,
+                    password: signInPassword
+                })
             })
-        })
-        .then(resp => resp.json())
-        .then(user => {
-            console.log(user.id);
-            if(user.id){
-                loadUser(user);
-                // onRouteChange('home');
-                // history.push("/home");
-            }
-        })
-        console.log(signInEmail, signInPassword);
+            .then(resp => resp.json())
+            .then(user => {
+                // console.log(user.id);
+                if(user.id){
+                    loadUser(user);
+                    // onRouteChange('home');
+                    // history.push("/home");
+                }
+            })
+            // console.log(signInEmail, signInPassword);
+        } catch (err) {
+            console.error(err.message);
+        }
         
     }
 

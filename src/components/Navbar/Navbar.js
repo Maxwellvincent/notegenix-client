@@ -31,9 +31,10 @@ function Navbar() {
                 <nav className="navbar">
                     <div className="navbar-container" >
                         <Link 
-                            exact to="/" 
+                            exact 
+                            to="/" 
                             className="navbar-logo" 
-                            style={{color: "white"}}
+                            // style={{"color": "white"}}
                             onClick={closeMobileMenu}
                         >
                             Notegenix 
