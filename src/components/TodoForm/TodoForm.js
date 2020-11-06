@@ -4,7 +4,7 @@ import { uuid } from 'uuidv4';
 
 // import {MdAddBox} from 'react-icons/md'
 
-const TodoForm = ({addTodo, editTask, editTodo}) => {
+const TodoForm = ({ addTodo, editTask, editTodo, setTodosChange}) => {
     // const [todos, setTodos] = useState([]);
     const [value, setValue] = useState('');
 
@@ -17,15 +17,34 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
                 description: value,
                 id: uuid()
             }
+            console.log(todoObj);
             addTodo(todoObj)
+
             try {
+
+                const myHeaders = new Headers();
+
+                myHeaders.append('Content-Type', 'application/json');
+                myHeaders.append('token', localStorage.token);
+
                 const body = {description: value};
-                // const response 
-                await fetch('https://boiling-citadel-55622.herokuapp.com/api/v1/todos', {
+
+               const response = await fetch('http://localhost:8000/dashboard/todos', {
                     method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
+                    headers: myHeaders,
                     body: JSON.stringify(body)
                 });
+
+                const parseRes = await response.json();
+                console.log(parseRes);
+                setTodosChange(true);
+                // INCASE YOU MESS UP COMMENT THIS OUT
+                // const response 
+                // await fetch('https://boiling-citadel-55622.herokuapp.com/api/v1/todos', {
+                //     method: 'POST',
+                //     headers: {'Content-Type': 'application/json'},
+                //     body: JSON.stringify(body)
+                // });
                
                 // Need to grab state of todos and push in new todo
                 

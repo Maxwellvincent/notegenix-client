@@ -41,11 +41,12 @@ function App() {
   async function deleteTodo(id){
         console.log(id);
         try {
-            await fetch(`https://boiling-citadel-55622.herokuapp.com/api/v1/todos/${id}`, {
-                method: "DELETE"
+            await fetch(`https://localhost:8000/dashboard/todos/${id}`, {
+                method: "DELETE",
+                headers: {token: localStorage.token}
             });
             //We dont want to have to refresh the page to relod the delete, so we need to make sure we change the state, which changing the state we rerender
-            setTodos(todos.filter(todo => todo.id !== id));
+            setTodos(todos.filter(todo => todo.task_id !== id));
             //we want to return all the todos in the todos state that does NOT equal the id that i just clicked
            
         } catch (error) {
@@ -90,6 +91,7 @@ function App() {
       console.log(error.message)
     }
   }
+
   // This edit task function is not working, is it because Im not making a post request just yet?
   const editTask = (description, id) => {
    console.log(id);
@@ -148,6 +150,7 @@ function App() {
             </Route>
             <Route path='/about' component={About}/>
             <Route path='/register' component={Register}/>
+            <Route path='/register' component={UserDashboard}/>
             {/* <Route path='/signup' component={Signin}/> */}
             <Route path='/login' 
               render={props => !isAuthenticated ? <Login {...props} setAuth={setAuth}/> : 
@@ -155,7 +158,14 @@ function App() {
             <Route path='/register'
               render={props => !isAuthenticated ? <Register {...props} setAuth={setAuth}/> : <Redirect to="login"/>}/>
             <Route path='/dashboard'
-              render={props => isAuthenticated ? <UserDashboard {...props} setAuth={setAuth}/> : <Redirect to="login"/>}/>
+              render={props => isAuthenticated ? <UserDashboard {...props} setAuth={setAuth} 
+              addTodo={addTodo} 
+              editTask={editTask}
+              editTodo={editTodo}
+              todos={todos}
+              findItem={findItem}
+              deleteTodo={deleteTodo}
+              /> : <Redirect to="login"/>}/>
           </Switch>
       </div>
    
