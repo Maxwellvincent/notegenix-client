@@ -48,15 +48,8 @@ function App() {
   
 
    //using instead of componentDidMount and ComponentDidUpdate, this does it all combined.
-<<<<<<< HEAD
-    useEffect(() => {
-        getAllTodos();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[]);
-=======
    //This is working with no error
    useEffect(getAllTodos,[])
->>>>>>> 0e2a9767fa67b42715ebe36b628813c4be2f6185
 
     //Explains why we need to set an array at the end of useEffect https://www.robinwieruch.de/react-hooks-fetch-data
 
