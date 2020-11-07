@@ -42,9 +42,9 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
 
     useEffect(() => {
         if(editTodo){
-            console.log(editTodo);
+            // console.log(editTodo);
             setValue(editTodo.description);
-            console.log(editTodo);
+            // console.log(editTodo);
         } else {
             setValue('');
         }
