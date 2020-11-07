@@ -1,4 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [Notegenix](https://notegenix-client.vercel.app/)
+
+Set yourself up for success by creating, and completing various tasks/todo items. A great way to prioritze your goals, events, and tasks. Tasks can be created, edited, and deleted.
+
+## API Documentation
+
+### Introduction
+The NoteGenix API is organized around REST. The API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, and verbs.
+
+The NoteGenix API can be used to programmatically retrieve and analyze data.
+This API provides access to a multitude of notes
+ 
+
+### Overview
+
+
+### Authentication
+What is the preferred way of using the API?
+- No Authentication
+
+### Error Codes
+Notegenix uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Stripe's servers (these are rare).
+
+### Rate limit
+Is there a limit to the number of requests an user can send?
+There is not a rate limit set at this time, user is able to make as many requests at they need
+
+## Screenshots
+![image](https://user-images.githubusercontent.com/44560811/96477226-3bf4cc00-1204-11eb-86dc-fb453caa2cc5.png)
+
+![image](https://user-images.githubusercontent.com/44560811/96477374-69da1080-1204-11eb-8408-7428348dc9b8.png)
+
+## Technology Used
+- Front-End:
+  - React
+  - JS
+  - CSS
+  - HTML
+- Back-End:
+  - Express
+  - PSQL
+
+
 
 ## Available Scripts
 
@@ -27,42 +69,3 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

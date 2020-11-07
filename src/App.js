@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import TodoForm from './components/TodoForm/TodoForm';
 import TodoList from './components/TodoList/TodoList';
 import Navbar from './components/Navbar/Navbar';
-import {BrowserRouter as Router} from 'react-router-dom';
 import {Switch, Route} from 'react-router-dom';
 import './App.css';
 import Home from './components/Pages/Home';
@@ -21,11 +20,8 @@ function App() {
     try {
       const response = await fetch(`https://boiling-citadel-55622.herokuapp.com/api/v1/todos`);
       // Check that we are receiving a response
-        // console.log(response);
        // we are returning an array of notes to be display, the data that we are receiving will be json, so we need to parse the data with .json();
        const todosArray = await response.json();
-       // console.log(todosArray);
-
        // inside the state we want to put the todos, by usring React hook setTodos
        setTodos(...todos,todosArray);
 
@@ -52,23 +48,31 @@ function App() {
   
 
    //using instead of componentDidMount and ComponentDidUpdate, this does it all combined.
+<<<<<<< HEAD
     useEffect(() => {
         getAllTodos();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
+=======
+   //This is working with no error
+   useEffect(getAllTodos,[])
+>>>>>>> 0e2a9767fa67b42715ebe36b628813c4be2f6185
 
     //Explains why we need to set an array at the end of useEffect https://www.robinwieruch.de/react-hooks-fetch-data
 
+    //MAY NEED TO PASS IN AN OBJECT HERE, SO I CAN HAVE ACCESS TO THE ID AS WELL, MAY NEED TO GENERATE A UUID
   const addTodo = (todoText) => {
     console.log(todoText);
           // check ane make sure we are not receiving empty strings
-          if(todoText.description.length > 0){
+          if(todoText.description.length > 0){ 
             setTodos([...todos, todoText]);
           }
   }
 
   const findItem = id => {
+    console.log(todos);
     const item = todos.find(todo => todo.id === id);
+    console.log(item);
     setEditTodo(item)
   }
 
@@ -77,39 +81,29 @@ function App() {
   async function updateTodo(description,id) {
 
     try {
-        // console.log(JSON.stringify(description));
-      // const body = {description}; 
       await fetch(`https://boiling-citadel-55622.herokuapp.com/api/v1/todos/` +id, {
         method: 'PATCH',
         headers: {'content-type': 'application/json'},
         body : JSON.stringify(description)
       });
-      // console.log(resp);
     } catch (error) {
       console.log(error.message)
     }
   }
   // This edit task function is not working, is it because Im not making a post request just yet?
   const editTask = (description, id) => {
-    // this is the description of the task
-      // console.log({description: description})
-    //This is a reference to the id of the task
-      // console.log(id)
-      //Need to set up update request here
+   console.log(id);
     updateTodo({description: description}, id)
-    // console.log(todos);
-    const newTodos = todos.map(task => task.id === id ? {description, id} : task);
+   
+    const newTodos = todos.map(task => task.id === id ? {description: description, id: id} : task);
     setTodos(newTodos)
     setEditTodo(null);
-      // console.log(newTodos);
-    
-
-    
+      console.log(newTodos);
   }
   
 
   return (
-    <Router>
+    
         <div className="main">
         <Navbar/>
         <Switch>
@@ -132,7 +126,7 @@ function App() {
           <Route path='/about' component={About}/>
         </Switch>
       </div>
-    </Router>
+   
     
     
   );

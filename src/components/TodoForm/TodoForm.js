@@ -1,5 +1,7 @@
 import React, { useState, useEffect }from 'react';
 import './TodoForm.css';
+import { uuid } from 'uuidv4';
+
 // import {MdAddBox} from 'react-icons/md'
 
 const TodoForm = ({addTodo, editTask, editTodo}) => {
@@ -11,16 +13,20 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
         e.preventDefault();
        
         if(!editTodo){
-            addTodo({description: value});
+            const todoObj = {
+                description: value,
+                id: uuid()
+            }
+            addTodo(todoObj)
             try {
                 const body = {description: value};
-                console.log(body)
-                const response = await fetch('https://boiling-citadel-55622.herokuapp.com/api/v1/todos', {
+                // const response 
+                await fetch('https://boiling-citadel-55622.herokuapp.com/api/v1/todos', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(body)
                 });
-                console.log(response);
+               
                 // Need to grab state of todos and push in new todo
                 
                 setValue('');
@@ -30,9 +36,7 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
             }
         } else {
             //This means we are editing the todo task
-            editTask(value,editTodo.id)
-            // editTask(editTodo.description,editTodo.id)
-            console.log(editTodo);
+            editTask(value, editTodo.id)
         }
         console.log(value);
         
@@ -53,8 +57,6 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
 
     return (
         <div className="todo-form">
-            {/* <h1>Input Todo</h1> */}
-            
             <form onSubmit={onFormSubmit}>
                 <div className="form-control">
                     <input type="text" 
@@ -63,10 +65,7 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
                         value={value}
                         onChange={e => setValue(e.target.value)}
                         required
-                        />
-                    {/* <MdAddBox type="submit" className="icons"> 
-                        {MdAddBox? 'Edit Task': 'Add Task'}
-                    </MdAddBox> */}
+                    />
                     <button type="submit">{editTodo ? 'Edit Task': 'Add Task'}</button>
                 </div>
                 

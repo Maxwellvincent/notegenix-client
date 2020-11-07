@@ -1,8 +1,6 @@
 import React from 'react';
 import { AiFillCloseSquare, AiFillEdit } from 'react-icons/ai';
 
-// import EditTodo from './EditTodo';
-
 
 const Todo = ({todo, deleteTodo, findItem}) => {
 
