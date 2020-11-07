@@ -9,7 +9,30 @@ The NoteGenix API is organized around REST. The API has predictable resource-ori
 
 The NoteGenix API can be used to programmatically retrieve and analyze data.
 This API provides access to a multitude of notes
- 
+
+### Todos Endpoint
+
+#### GET /api/v1/todos
+
+ Returns a list of all todos within the database.
+
+#### GET /api/v1/todos/:id
+
+ Returns a single todo within the database at that id.
+
+#### POST /api/v1/todos
+
+Creates a todo object to send to the database
+  
+  {
+   description: "" 
+  }
+  
+#### Patch /api/v1/todos/:id
+
+Edit/update a previously created todo within the database.
+
+#### Delete /api/v1/todos/:id
 
 ### Overview
 
