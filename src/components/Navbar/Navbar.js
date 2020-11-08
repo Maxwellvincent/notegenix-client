@@ -31,7 +31,7 @@ function Navbar() {
                 <nav className="navbar">
                     <div className="navbar-container" >
                         <Link 
-                            exact to="/" 
+                            to="/" 
                             className="navbar-logo" 
                             style={{color: "white"}}
                             onClick={closeMobileMenu}
@@ -43,17 +43,29 @@ function Navbar() {
                         </div>
                         <ul className={click ? 'nav-menu active': 'nav-menu'}>
                             <li className='nav-item'>
-                                <Link exact to='/' className='nav-links' onClick={closeMobileMenu}>
+                                <Link 
+                                    to='/' 
+                                    className='nav-links' 
+                                    onClick={closeMobileMenu}
+                                    >
                                     Home
                                 </Link>
                             </li>
                             <li className='nav-item'>
-                                <Link exact to='/about' className='nav-links' onClick={closeMobileMenu}>
+                                <Link 
+                                    to='/about' 
+                                    className='nav-links' 
+                                    onClick={closeMobileMenu}
+                                    >
                                     About
                                 </Link>
                             </li>
                             <li className='nav-item'>
-                                <Link exact to='/start' className='nav-links' onClick={closeMobileMenu}>
+                                <Link 
+                                    to='/start' 
+                                    className='nav-links' 
+                                    onClick={closeMobileMenu}
+                                    >
                                     Start Task
                                 </Link>
                             </li>

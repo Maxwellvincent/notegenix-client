@@ -11,6 +11,7 @@ const Todo = ({todo, deleteTodo, findItem}) => {
             <div key={todo.id} className="user-input">
                 <input type="text" 
                     value={todo.description} 
+                    readOnly
                 />
                 <AiFillEdit 
                     onClick={() => findItem(todo.id)}

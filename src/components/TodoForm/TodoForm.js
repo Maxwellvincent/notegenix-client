@@ -1,6 +1,7 @@
 import React, { useState, useEffect }from 'react';
 import './TodoForm.css';
-import { uuid } from 'uuidv4';
+// import { uuid } from 'uuidv4';
+import {v4} from 'uuid';
 
 // import {MdAddBox} from 'react-icons/md'
 
@@ -15,7 +16,8 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
         if(!editTodo){
             const todoObj = {
                 description: value,
-                id: uuid()
+                // id: uuid()
+                id: v4()
             }
             addTodo(todoObj)
             try {
