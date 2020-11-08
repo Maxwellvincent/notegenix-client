@@ -20,7 +20,7 @@ Returns a list of all todos within the database.
 
 Returns a single todo within the database at that id.
 
-#### POST /api/v1/todos
+>POST /api/v1/todos
 
 Creates a todo object to send to the database
   
@@ -28,11 +28,11 @@ Creates a todo object to send to the database
      description: "" 
     }
   
-#### Patch /api/v1/todos/:id
+>Patch /api/v1/todos/:id
 
 Edit/update a previously created todo within the database.
 
-#### Delete /api/v1/todos/:id
+>Delete /api/v1/todos/:id
 
 ### Overview
 
