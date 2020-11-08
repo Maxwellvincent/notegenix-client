@@ -34,13 +34,13 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
                 setValue('');
                 
             } catch (error) {
-                // console.log(error.message);
+                
             }
         } else {
             //This means we are editing the todo task
             editTask(value, editTodo.id)
         }
-        // console.log(value);
+        
         
 
         
@@ -48,9 +48,9 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
 
     useEffect(() => {
         if(editTodo){
-            // console.log(editTodo);
+            
             setValue(editTodo.description);
-            // console.log(editTodo);
+            
         } else {
             setValue('');
         }

@@ -32,7 +32,7 @@ function App() {
 
   // Function to delete specific notes
   async function deleteTodo(id){
-        // console.log(id);
+        
         try {
             await fetch(`https://boiling-citadel-55622.herokuapp.com/api/v1/todos/${id}`, {
                 method: "DELETE"
@@ -55,7 +55,7 @@ function App() {
 
     //MAY NEED TO PASS IN AN OBJECT HERE, SO I CAN HAVE ACCESS TO THE ID AS WELL, MAY NEED TO GENERATE A UUID
   const addTodo = (todoText) => {
-    // console.log(todoText);
+    
           // check ane make sure we are not receiving empty strings
           if(todoText.description.length > 0){ 
             setTodos([...todos, todoText]);
@@ -63,9 +63,9 @@ function App() {
   }
 
   const findItem = id => {
-    // console.log(todos);
+    
     const item = todos.find(todo => todo.id === id);
-    // console.log(item);
+    
     setEditTodo(item)
   }
 
@@ -80,18 +80,18 @@ function App() {
         body : JSON.stringify(description)
       });
     } catch (error) {
-      // console.log(error.message)
+      
     }
   }
   // This edit task function is not working, is it because Im not making a post request just yet?
   const editTask = (description, id) => {
-  //  console.log(id);
+ 
     updateTodo({description: description}, id)
    
     const newTodos = todos.map(task => task.id === id ? {description: description, id: id} : task);
     setTodos(newTodos)
     setEditTodo(null);
-      // console.log(newTodos);
+      
   }
   
 
