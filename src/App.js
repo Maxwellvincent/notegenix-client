@@ -6,7 +6,7 @@ import {Switch, Route} from 'react-router-dom';
 import './App.css';
 import Home from './components/Pages/Home';
 import About from './components/Pages/About';
-
+import Signin from './components/Pages/Signin';
 
 function App() {
   // Need to put the state of the todos, add , edit, and delete functions here or be able to pass down the functions into the components
@@ -117,6 +117,7 @@ function App() {
             </div>
           </Route>
           <Route path='/about' component={About}/>
+          <Route path='/signup' component={Signin}/>
         </Switch>
       </div>
    
