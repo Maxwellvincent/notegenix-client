@@ -12,21 +12,21 @@ This API provides access to a multitude of notes
 
 ### Todos Endpoint
 
-#### GET /api/v1/todos
+>> #### GET /api/v1/todos
 
- Returns a list of all todos within the database.
+Returns a list of all todos within the database.
 
-#### GET /api/v1/todos/:id
+>> GET /api/v1/todos/:id
 
- Returns a single todo within the database at that id.
+Returns a single todo within the database at that id.
 
 #### POST /api/v1/todos
 
 Creates a todo object to send to the database
   
-  {
-   description: "" 
-  }
+    {
+     description: "" 
+    }
   
 #### Patch /api/v1/todos/:id
 
