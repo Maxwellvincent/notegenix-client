@@ -32,13 +32,13 @@ const TodoForm = ({addTodo, editTask, editTodo}) => {
                 setValue('');
                 
             } catch (error) {
-                console.log(error.message);
+                // console.log(error.message);
             }
         } else {
             //This means we are editing the todo task
             editTask(value, editTodo.id)
         }
-        console.log(value);
+        // console.log(value);
         
 
         
