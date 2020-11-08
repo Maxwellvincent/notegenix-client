@@ -4,47 +4,47 @@ Set yourself up for success by creating, and completing various tasks/todo items
 
 ## API Documentation
 
-### Introduction
+## Introduction
 The NoteGenix API is organized around REST. The API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, and verbs.
 
 The NoteGenix API can be used to programmatically retrieve and analyze data.
 This API provides access to a multitude of notes
 
-### Todos Endpoint
+## Todos Endpoint
 
-#### GET /api/v1/todos
+>GET /api/v1/todos
 
- Returns a list of all todos within the database.
+Returns a list of all todos within the database.
 
-#### GET /api/v1/todos/:id
+>GET /api/v1/todos/:id
 
- Returns a single todo within the database at that id.
+Returns a single todo within the database at that id.
 
-#### POST /api/v1/todos
+>POST /api/v1/todos
 
 Creates a todo object to send to the database
   
-  {
-   description: "" 
-  }
+    {
+     description: "" 
+    }
   
-#### Patch /api/v1/todos/:id
+>Patch /api/v1/todos/:id
 
 Edit/update a previously created todo within the database.
 
-#### Delete /api/v1/todos/:id
+>Delete /api/v1/todos/:id
 
-### Overview
+## Overview
 
 
-### Authentication
+## Authentication
 What is the preferred way of using the API?
 - No Authentication
 
-### Error Codes
+## Error Codes
 Notegenix uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Stripe's servers (these are rare).
 
-### Rate limit
+## Rate limit
 Is there a limit to the number of requests an user can send?
 There is not a rate limit set at this time, user is able to make as many requests at they need
 
