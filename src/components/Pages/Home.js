@@ -2,12 +2,16 @@ import React from 'react';
 import '../../App.css'
 import HeroSection from '../HeroSection/HeroSection'
 import InfoSection from '../InfoSection/InfoSection';
+import './Home.css';
 
 function Home (){
     return (
         <>
-            <HeroSection/>
-            <InfoSection/>
+            <div>
+                <HeroSection/>
+                <InfoSection/>
+            </div>
+            
         </>
     )
 }
